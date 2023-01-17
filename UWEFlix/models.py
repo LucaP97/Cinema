@@ -93,7 +93,7 @@ class Club(models.Model):
 
     def __str__(self) -> str:
         return self.club_name
-
+ 
 class ClubRepresentative(models.Model):
     club = models.OneToOneField(Club, on_delete=models.CASCADE, related_name='clubRep')
     birth_date = models.DateField()
@@ -102,6 +102,9 @@ class ClubRepresentative(models.Model):
 
     def __str__(self) -> str:
         return self.user.first_name + ' ' + self.user.last_name
+
+    class Meta:
+        ordering = ['user__first_name', 'user__last_name']
 
     
 
