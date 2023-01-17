@@ -98,7 +98,7 @@ class ClubRepresentative(models.Model):
     club = models.OneToOneField(Club, on_delete=models.CASCADE, related_name='clubRep')
     birth_date = models.DateField()
     club_representative_number = models.IntegerField(unique=True, null=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
 
     def __str__(self) -> str:
         return self.user.first_name + ' ' + self.user.last_name

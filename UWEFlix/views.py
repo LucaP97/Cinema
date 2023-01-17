@@ -19,3 +19,12 @@ def hello_there(request):
             'date': datetime.datetime.now()
         }
     )
+
+def home(request):
+    return render(request, "UWEFlix/home.html")
+
+def about(request):
+    return render(request, "UWEFlix/about.html")
+
+def contact(request):
+    return render(request, "UWEFlix/contact.html")
